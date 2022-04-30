@@ -1,0 +1,17 @@
+spring:
+  main:
+    show-banner: off
+  datasource:
+    url: jdbc:mysql://localhost:3306/forum?useSSL=false
+    username: root
+    password: 12345
+  mail:
+    username: zhuoyueda@163.com
+    host: smtp.163.com
+    password: BTLXGEJAGRTOSRGK
+    port: 465
+    test-connection: on
+    properties.mail.smtp.ssl.enable: true
+    protocol: smtp
+
+
