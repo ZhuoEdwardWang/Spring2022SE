@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF22207D28216690004C2074 /* Reset_name_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22207C2821668F004C2074 /* Reset_name_View.swift */; };
+		DF22208128216B7D004C2074 /* Reset_password_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF22208028216B7C004C2074 /* Reset_password_View.swift */; };
+		DF2220832821711D004C2074 /* Verify_account_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2220822821711D004C2074 /* Verify_account_view.swift */; };
 		DF4BCAC427EF14830025E83B /* Single_brief_message_model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCAC327EF14830025E83B /* Single_brief_message_model.swift */; };
 		DF4BCAC727EF17810025E83B /* Single_post_model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCAC627EF17810025E83B /* Single_post_model.swift */; };
 		DF4BCAC927EF1A4A0025E83B /* Single_brief_message_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4BCAC827EF1A4A0025E83B /* Single_brief_message_view.swift */; };
@@ -61,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF22207C2821668F004C2074 /* Reset_name_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reset_name_View.swift; sourceTree = "<group>"; };
+		DF22208028216B7C004C2074 /* Reset_password_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reset_password_View.swift; sourceTree = "<group>"; };
+		DF2220822821711D004C2074 /* Verify_account_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify_account_view.swift; sourceTree = "<group>"; };
 		DF4BCAC327EF14830025E83B /* Single_brief_message_model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Single_brief_message_model.swift; sourceTree = "<group>"; };
 		DF4BCAC627EF17810025E83B /* Single_post_model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Single_post_model.swift; sourceTree = "<group>"; };
 		DF4BCAC827EF1A4A0025E83B /* Single_brief_message_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Single_brief_message_view.swift; sourceTree = "<group>"; };
@@ -219,6 +225,9 @@
 				DF94C7CD28183A43005087DF /* Moments.swift */,
 				DF4BCAD227EF50950025E83B /* Profile_view.swift */,
 				DF94C7D3281EEEC4005087DF /* Personal_profile_view.swift */,
+				DF22207C2821668F004C2074 /* Reset_name_View.swift */,
+				DF22208028216B7C004C2074 /* Reset_password_View.swift */,
+				DF2220822821711D004C2074 /* Verify_account_view.swift */,
 				DF94C7CF281EDA5D005087DF /* Setting.swift */,
 			);
 			path = view;
@@ -369,8 +378,10 @@
 				DF95248928047738000693A2 /* Integrate_view.swift in Sources */,
 				DF94C7CC28183987005087DF /* Contacts.swift in Sources */,
 				DF62289227E07DFF007DA786 /* tempApp.swift in Sources */,
+				DF2220832821711D004C2074 /* Verify_account_view.swift in Sources */,
 				DF4BCAE327EF96540025E83B /* Forget_password_view.swift in Sources */,
 				DF4BCAE727F0418A0025E83B /* User_model.swift in Sources */,
+				DF22208128216B7D004C2074 /* Reset_password_View.swift in Sources */,
 				DF4BCAE527EF9FB70025E83B /* Forget_password_verfication_view.swift in Sources */,
 				DFB8C49E27E2538200704FD5 /* Login_view.swift in Sources */,
 				DF4BCAC427EF14830025E83B /* Single_brief_message_model.swift in Sources */,
@@ -379,6 +390,7 @@
 				DF94C7D828200519005087DF /* New_post_view.swift in Sources */,
 				DFB8C49C27E0EBBC00704FD5 /* Single_post_view.swift in Sources */,
 				DF4BCAD727EF56BB0025E83B /* Single_chat_message_model.swift in Sources */,
+				DF22207D28216690004C2074 /* Reset_name_View.swift in Sources */,
 				DFC2F2612817EE9C004ABE21 /* Message_history_page_view.swift in Sources */,
 				DF94C7CE28183A43005087DF /* Moments.swift in Sources */,
 				DF94C7D4281EEEC4005087DF /* Personal_profile_view.swift in Sources */,

@@ -40,7 +40,8 @@ struct Integrate_view: View {
                 
                 
             }.font(.headline).navigationBarTitle(get_title(selected_tab: tab_selection),displayMode: .inline).navigationBarItems(trailing: NavigationLink(destination: New_post_view()) {
-                Image(systemName: "plus.circle").disabled(tab_selection != Tabs.tab2).opacity(tab_selection == Tabs.tab2 ? 100.0 : 0.0).foregroundColor(.black)
+                
+                    Image(systemName: "plus.circle").disabled(tab_selection != Tabs.tab2).opacity(tab_selection == Tabs.tab2 ? 100.0 : 0.0).foregroundColor(.black)
                 //Text("New post").foregroundColor(.black)
             })
         

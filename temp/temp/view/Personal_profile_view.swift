@@ -17,28 +17,35 @@ struct Personal_profile_view: View {
                         Spacer()
                         this_user.get_photo().resizable(resizingMode: .stretch).aspectRatio(contentMode: .fit).frame(width:75, height: 75)
                     }
-                    
-                    HStack {
-                        Text("Name")
-                        Spacer()
-                        Text(this_user.get_name()).lineLimit(1)
+                    NavigationLink(destination: Reset_name_View()) {
+                        HStack {
+                            Text("Name")
+                            Spacer()
+                            Text(this_user.get_name()).lineLimit(1)
+                        }//.foregroundColor(.black)
                     }
-                    
+
                     HStack{
                         Text("ID")
                         Spacer()
                         Text(String(this_user.get_id()))
                     }
                     
-                    HStack{
-                        Text("Change password")
-                        Spacer()
+                    NavigationLink(destination: Reset_password_View()) {
+                        HStack{
+                            Text("Change password")
+                            Spacer()
+                        }
                     }
+                    /*
+                    NavigationLink(destination: Verify_account_view()) {
+                        HStack{
+                            Text("Verify Account")
+                            Spacer()
+                        }
+                    }
+                     */
                     
-                    HStack{
-                        Text("Verify Account")
-                        Spacer()
-                    }
                 }
                 /*
                 Section {
