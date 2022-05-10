@@ -14,6 +14,7 @@ func email_exist(_ email: String) -> Bool{
     return true
 }
 
+//check if the email and password math in the database
 func email_password_match(_ email: String, _ password: String) -> Bool{
     return true
 }
@@ -25,14 +26,12 @@ func email_verification_code_match(_ email:String, _ verification_code: String) 
 }
 
 
-//user log in successfully, initialize data
-func log_in(_ email:String, _ password:String){
-    
-}
-
+//add the email and password to database
 func create_account(_ email: String, _ password:String){
     
 }
+
+//send a new verification code to the user's email
 func new_verification_code(_ email: String){
     
 }
@@ -41,6 +40,46 @@ func new_verification_code(_ email: String){
 func new_password_to_account(_ email: String){
     
 }
+//##############################
+//initialization
+
+//user log in successfully, initialize data
+func log_in(_ email:String, _ password:String){
+    
+}
+
+func load_this_user() -> Special_user_model{
+    return Special_user_model(0)
+}
+
+//
+func load_all_chat_history() -> [chat_history]{
+    var output: [chat_history] = []
+    let chat_histories = get_associated_chat_id_from_user_id(this_user.id)
+    for single_history_id in chat_histories{
+        let query_result = get_chat_history_from_chat_id(single_history_id)
+        output.append(query_result!)
+    }
+    return output
+                
+}
+
+
+func load_posts () -> [Single_post_model] {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd, HH:mm"
+    
+    return [Single_post_model(0,1,"Message 1",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(1,1,"Message 2",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(2,1,"Message 3",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(3,1,"Message 4",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(4,1,"Message 5",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(2,1,"Message 6",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(3,1,"Message 7",dateFormatter.date(from:"2022/04/20, 08:20")!),
+            Single_post_model(4,1,"Message 8",dateFormatter.date(from:"2022/04/20, 08:20")!)
+    ]
+}
+
 
 //##############################################################################################
 //updation method. All functions should update local database, then synchronize remote database with local database
@@ -65,7 +104,10 @@ func update_username(_ user_id: Int, _ new_name:String){
 }
 
 //##################################################
+//local cache should keep track of chat histories and moments
 
+
+//get the username from user id from database
 func get_user_name_from_user_id(_ id: Int) -> String{
     return "Bronya"
 }
@@ -74,7 +116,11 @@ func get_user_picture_from_user_id(_ id: Int) -> Image{
     return Image("次生银翼")
 }
 
+func get_user_profile_from_user_id(_ id: Int) -> User_model{
+    return User_model(id)
+}
 
+//get the id of chat histories associated with this user.
 func get_associated_chat_id_from_user_id(_ user_id: Int) -> [Int]{
     return [0,1,2]
 }
@@ -83,7 +129,7 @@ func get_chat_type_from_id(_ id: Int) -> Int{
     return 0
 }
 
-
+//get the
 func get_chat_name_from_chat_id(_ id: Int) -> String {
     switch id {
         case 0:
@@ -163,39 +209,4 @@ func get_chat_history_from_chat_id(_ id: Int) -> Single_chat_history_model? {
     return nil
 }
 */
-
-//
-func load_all_chat_history() -> [chat_history]{
-    var output: [chat_history] = []
-    let chat_histories = get_associated_chat_id_from_user_id(this_user.id)
-    for single_history_id in chat_histories{
-        let query_result = get_chat_history_from_chat_id(single_history_id)
-        output.append(query_result!)
-    }
-    return output
-                
-}
-
-
-func load_posts () -> [Single_post_model] {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy/MM/dd, HH:mm"
-    
-    return [Single_post_model(0,1,"次生银翼保佑我写软件不出bug，拜托了另一个我",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(1,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(2,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(3,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(4,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(2,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(3,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!),
-            Single_post_model(4,1,"次生银翼保佑我写软件不出bug",dateFormatter.date(from:"2022/04/20, 08:20")!)
-    ]
-}
-func get_user_profile_from_user_id(_ id: Int) -> User_model{
-    return User_model(id)
-}
-
-func load_this_user() -> Special_user_model{
-    return Special_user_model(0)
-}
 
