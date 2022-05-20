@@ -1,13 +1,20 @@
 package com.forum.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.management.relation.Role;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;
 
@@ -15,29 +22,46 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
+    @NotBlank
+    @Column
     private String username;
 
-    private String pwd;
+    @NotBlank
+    @Column
+    private String password;
 
+    @NotBlank
+    @Column
     private String gender;
 
+    @NotBlank
+    @Column
     private String email;
 
+    @Column
     private Long tel;
 
+    @Column
     private String province;
 
+    @Column
     private String city;
 
+    @Column
     private int class_of;
 
+    @Column
     private int prof_pic_id;
 
+    @Column
     private String whats_up;
 
+    @Column
     private Timestamp created_at;
 
+    @Column
     private Timestamp updated_at;
+
 
     public User() {
 
@@ -49,12 +73,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getUser_id() {
@@ -187,5 +211,28 @@ public class User implements Serializable {
                 '}';
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

@@ -3,9 +3,7 @@ package com.forum.service;
 import com.forum.model.User;
 import com.forum.repository.UserDao;
 import com.forum.util.MD5Util;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.sql.Timestamp;
@@ -17,21 +15,21 @@ public class UserService {
     @Resource
     private UserDao userDao;
 
-    public User accountCreate(String name, String pwd, String email, String gender) {
-        User user = new User();
-        user.setUsername(name);
-        String hashPwd = MD5Util.getMD5(pwd);
-        user.setPwd(hashPwd);
-        user.setEmail(email);
-        user.setGender(gender);
-        Date date = new Date();
-        Timestamp time = new Timestamp(date.getTime());
-        user.setCreated_at(time);
-        user.setCity("Unknown");
-        User save = userDao.save(user);
-        System.out.println(save);
-        return save;
-    }
+//    public User accountCreate(String name, String pwd, String email, String gender) {
+//        User user = new User();
+//        user.setUsername(name);
+//        String hashPwd = MD5Util.getMD5(pwd);
+//        user.setPassword(hashPwd);
+//        user.setEmail(email);
+//        user.setGender(gender);
+//        Date date = new Date();
+//        Timestamp time = new Timestamp(date.getTime());
+//        user.setCreated_at(time);
+//        user.setCity("Unknown");
+//        User save = userDao.save(user);
+//        System.out.println(save);
+//        return save;
+//    }
 
     public Iterable<User> findUsers() {
         Iterable<User> findAll = userDao.findAll();

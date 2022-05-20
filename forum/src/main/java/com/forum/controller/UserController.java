@@ -1,9 +1,7 @@
 package com.forum.controller;
 
 import com.forum.model.User;
-import com.forum.repository.UserDao;
 import com.forum.service.UserService;
-import com.forum.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.Optional;
 
 
 @Controller
@@ -34,16 +31,16 @@ public class UserController {
     }
 
 
-    @PostMapping("/user/register")
-    @ResponseBody
-    public User save(@RequestParam("name") String name,
-                     @RequestParam("pwd") String pwd,
-                     @RequestParam("email") String email,
-                     @RequestParam("gender") String gender) {
-
-        return userService.accountCreate(name, pwd, email, gender);
+//    @PostMapping("/user/register")
+//    @ResponseBody
+//    public User save(@RequestParam("name") String name,
+//                     @RequestParam("pwd") String pwd,
+//                     @RequestParam("email") String email,
+//                     @RequestParam("gender") String gender) {
 //
-    }
+//        return userService.accountCreate(name, pwd, email, gender);
+////
+//    }
 
     @PostMapping("/user/update/email")
     @ResponseBody
@@ -102,7 +99,7 @@ public class UserController {
                             @RequestParam("new_pwd") String new_pwd) {
         User user = findOne(id);
         if (user.getUser_id().equals(id)) {
-            user.setPwd(new_pwd);
+            user.setPassword(new_pwd);
             Timestamp timestamp = new Timestamp(new Date().getTime());
             user.setUpdated_at(timestamp);
             String response = "Pwd of" + id.toString() + " is updated at:" + timestamp;

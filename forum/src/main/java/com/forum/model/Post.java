@@ -1,13 +1,14 @@
 package com.forum.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 @Table(name = "posts")
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
     public Long parent_id;
@@ -19,6 +20,8 @@ public class Post {
     public String content;
 
     public int tag;
+
+    public Timestamp post_create_time;
 
     public Post(){
 
@@ -36,6 +39,14 @@ public class Post {
         this.title = title;
         this.content = content;
         this.tag = tag;
+    }
+
+    public Timestamp getPost_create_time() {
+        return post_create_time;
+    }
+
+    public void setPost_create_time(Timestamp post_create_time) {
+        this.post_create_time = post_create_time;
     }
 
     public Long getId() {
